@@ -1,194 +1,406 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #84a6e9;
-        }
-
-        header {
-            background-color: #941919;
-            color: #fff;
-            text-align: center;
-            padding: 2rem 0;
-            position: relative; /* Add this */
-        }
-
-        .header-content h1 {
-            font-size: 2.5rem;
-        }
-
-        /* Add styles for the round profile picture */
-        .profile-picture {
-            width: 100px; /* Adjust the size as needed */
-            height: 100px;
-            border-radius: 75%; /* Create a circular shape */
-            object-fit: cover; /* To ensure the image fills the circular area */
-            position: absolute; /* Add this */
-            top: 75px; /* Adjust top position as needed */
-            left: 75px; /* Adjust left position as needed */
-        }
-
-        nav {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-        }
-
-        .section-content {
-            background-color: #fff;
-            padding: 2rem;
-            margin: 1rem;
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: justify;
-        }
-
-        .download-button {
-            background-color: #333;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 20px;
-            display: inline-block;
-            margin-top: 10px;
-            align-self: center;
-        }
-
-        .download-button:hover {
-            background-color: #555;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem 0;
-            background-color: #333;
-            color: #fff;
-        }
-
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Srihari M | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Mukta', Arial, sans-serif;
+    }
+    body {
+      background-color: #f4f6f9;
+      color: #222;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      margin-bottom: 2.8rem;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 8px rgba(13,110,253,0.10);
+      padding: 2.4rem 2.1rem;
+      justify-content: flex-start;
+    }
+    .profile-img {
+      width: 130px; height: 130px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 2px 18px rgba(18,46,81,0.12);
+      border: 4px solid #f4f6f9;
+      flex-shrink: 0;
+    }
+    .profile-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .profile-main h1 {
+      font-size: 2.6rem;
+      color: #0d6efd;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.4rem;
+      font-weight: 800;
+      text-align: left;
+    }
+    .subtitle {
+      font-size: 1.18rem;
+      color: #555;
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+      text-align: left;
+    }
+    .details-list {
+      font-size: 1.08rem;
+      color: #333;
+      list-style: none;
+      margin: 0 0 1rem 0;
+      text-align: left;
+    }
+    .details-list li {
+      margin-bottom: 0.2rem;
+      line-height: 1.55;
+    }
+    .profile-main .main-btn {
+      margin-top: 0.75rem;
+      max-width: 200px;
+    }
+    .main-btn {
+      display: inline-block;
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+      background: #0d6efd;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    .main-btn:hover { background: #0b5ed7; }
+    section {
+      margin-bottom: 2.5rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h2 {
+      color: #083d77;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin-bottom: 1rem;
+      border-left: 5px solid #0d6efd;
+      padding-left: 1rem;
+      text-align: left;
+    }
+    .section-box {
+      border-radius: 15px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(13,110,253,0.07);
+      margin-bottom: 2rem;
+      padding: 2rem 1.8rem 1.8rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .justify {
+      text-align: justify;
+      font-size: 1.12rem;
+      letter-spacing: 0.01em;
+    }
+    /* Skills & Projects Custom Styles */
+    .skills-list, .projects-list {
+      margin-top: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .skill-item {
+      display: flex; justify-content: space-between; align-items: center;
+      background: #f6faff;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      font-size: 1.09rem;
+      font-weight: 500;
+    }
+    .skill-title { display: flex; align-items: center; gap: 0.7rem; }
+    .skill-btn {
+      padding: 0.45rem 1.1rem;
+      background: #12c08b;
+      border: none;
+      border-radius: 7px;
+      color: #fff;
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .skill-btn:hover { background: #0e9f6b; }
+    .projects-list .project-item {
+      background: #f7f7fa;
+      padding: 1.4rem 1.3rem 1.3rem 1.3rem;
+      border-radius: 9px;
+      box-shadow: 0 1px 7px rgba(13,110,253,0.05);
+      transition: box-shadow 0.22s;
+      margin-bottom: 0.7rem;
+    }
+    .project-header { display: flex; align-items: center; gap: 1rem; }
+    .project-title { font-size: 1.12rem; font-weight: 700; color: #0d6efd; }
+    .view-btn {
+      margin-left: auto;
+      margin-right: 0;
+      background: #fd7e14;
+      border: none; color: #fff; font-weight: 600;
+      padding: 0.51rem 1.07rem; border-radius: 8px;
+      cursor: pointer; font-size: 1rem; transition: background 0.2s;
+    }
+    .view-btn:hover { background: #cf650a; }
+    .project-details {
+      display: none;
+      margin-top: 1.1rem;
+      color: #2c3850;
+    }
+    .project-details img { 
+      width: 100%; max-width: 380px; border-radius: 7px; box-shadow: 0 2px 8px rgba(33,54,90,0.09); margin: 0.65rem 0; 
+      display: block;
+    }
+    .project-details h4 { color: #0d6efd; margin: 0.6rem 0 0.18rem 0; font-size: 1.13rem;}
+    .project-details ul { font-size: 1rem; margin-left: 1.2rem; }
+    .tools { background: #e9fbe7; color: #027a56; font-size: 0.86rem; padding: 0.22rem 0.7rem; border-radius: 4px; margin-right: 0.3rem;}
+    footer {
+      text-align: center;
+      margin-top: 2.4rem;
+      color: #888;
+      font-size: 1.08rem;
+      letter-spacing: 0.01em;
+    }
+    .footer-btn {
+      margin-top: 1rem;
+      background: #fd7e14;
+      color: white;
+    }
+    .footer-btn:hover { background: #e8590c; }
+    @media (max-width: 850px) {
+      .profile-header { flex-direction: column; align-items: center; gap: 1.25rem; text-align: center; }
+      .profile-main { align-items: center; }
+    }
+    @media (max-width: 700px) {
+      .container { padding: 0 }
+      section, .section-box { padding-left: 0.4rem; padding-right: 0.4rem;}
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <!-- Add your profile picture here -->
-            <img src="photo.jpg" alt="Your Profile Picture" class="profile-picture">
-            <h1>M SRIHARI</h1>
-            <p>i am web desiger</p>
+<div class="container">
+
+  <!-- TWO COLUMN PROFILE HEADER -->
+  <div class="profile-header">
+    <img src="your-photo.jpg" alt="Srihari M" class="profile-img" />
+    <div class="profile-main">
+      <h1>Srihari M</h1>
+      <div class="subtitle">Aspiring Software Developer&nbsp;|&nbsp;UI/UX Enthusiast</div>
+      <ul class="details-list">
+        <li><b>Degree:</b> B.Sc. in AI (DRBCC Hindu College, expected May 2026)</li>
+        <li><b>Phone:</b> 9042472957</li>
+        <li><b>Email:</b> mmmeganathan323@gmail.com</li>
+        <li><b>Location:</b> Pattabiram</li>
+      </ul>
+      <a href="resume.pdf" class="main-btn" download>Download Resume</a>
+      <a href="mailto:mmmeganathan323@gmail.com" class="main-btn">Email Me</a>
+    </div>
+  </div>
+
+  <!-- CATEGORIZED SKILLS SECTION -->
+  <section>
+    <h2>Skills</h2>
+    <div class="section-box">
+      <div class="skills-list">
+        <div class="skill-item">
+          <span class="skill-title"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" title="Python" width="30"/> Python</span>
+          <button class="skill-btn" onclick="alert('View my best Python projects!')">View Projects</button>
         </div>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#resume">Resume</a></li>
-           
-        </ul>
-    </nav>
-
-    <section id="about">
-        <div class="section-content">
-            <h2>About Me</h2>
-            <p>I'm a <b>web developer</b>  web developer is a professional who specializes in creating websites and web applications.
-                 They are responsible for writing the code that makes websites function properly. Web developers generally work with 
-                 programming languages, frameworks, and tools that enable them to build interactive, functional, and visually appealing websites.</p>
-
+        <div class="skill-item">
+          <span class="skill-title"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5" title="HTML5" width="30"/> HTML5</span>
+          <button class="skill-btn" onclick="alert('See HTML5 development and designs!')">See Designs</button>
         </div>
-    </section>
-
-    <section id="education">
-        <div class="section-content">
-            <h2>Education</h2>
-            <p>madras University  - Bsc cs with ai</p>
-            
-            
+        <div class="skill-item">
+          <span class="skill-title"><img src="https://cdn-icons-png.flaticon.com/512/709/709519.png" alt="UI/UX Design" width="26"/> UI/UX Design</span>
+          <button class="skill-btn" onclick="alert('See UI/UX case studies & portfolios!')">See Portfolio</button>
         </div>
-    </section>
+        <div class="skill-item">
+          <span class="skill-title"><img src="https://cdn-icons-png.flaticon.com/512/709/709496.png" alt="Java" width="26"/> Java</span>
+          <button class="skill-btn" onclick="alert('Explore my Java solutions!')">View Code</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="skills">
-        <div class="section-content">
-            <h2>Skills</h2>
+  <!-- CATEGORIZED PROJECTS SECTION -->
+  <section>
+    <h2>Projects (UI/UX)</h2>
+    <div class="section-box">
+      <div class="projects-list">
+        <!-- Project 1 -->
+        <div class="project-item">
+          <div class="project-header">
+            <span class="project-title">Digital Restaurant Menu UI</span>
+            <button class="view-btn" onclick="toggleDetails(0)">View Details</button>
+          </div>
+          <div class="project-details">
+            <img src="23.jpg" alt="Digital Restaurant Menu - UI" />
+            <h4>Overview</h4>
+            <div class="justify">
+              This project focused on creating a digital restaurant menu that is both visually attractive and easy for users to navigate. The design objective was to enhance the customer experience by enabling quick discovery of dishes and encouraging more orders.
+            </div>
+            <h4>Objectives</h4>
             <ul>
-                <li>python</li>
-                <li>css</li>
-                <li>Cloud Computing</li>
-                <li>Python</li>
-                <li>data structure</li>
-                <li>java</li>
+              <li>Design an appealing and intuitive restaurant menu layout.</li>
+              <li>Categorize dishes (e.g., breakfast, lunch, beverages, desserts).</li>
+              <li>Make the design mobile-responsive.</li>
+              <li>Incorporate high-quality food images and readable typography.</li>
             </ul>
+            <h4>Tools Used</h4>
+            <span class="tools">Figma</span>
+            <span class="tools">Adobe XD</span>
+            <span class="tools">Canva</span>
+            <h4>Implementation</h4>
+            <div class="justify">
+              The UI was designed with clear section headers, a minimal background, and thumbnail images of dishes. Prices, ratings, and estimated prep times were included below each item.
+            </div>
+          </div>
         </div>
-    </section>
-
-    <section id="projects">
-        <div class="section-content">
-            <h2>Projects</h2>
+        <!-- Project 2 -->
+        <div class="project-item">
+          <div class="project-header">
+            <span class="project-title">E-commerce Clothing Store UI</span>
+            <button class="view-btn" onclick="toggleDetails(1)">View Details</button>
+          </div>
+          <div class="project-details">
+            <img src="24.jpg" alt="E-commerce UI" />
+            <h4>Overview</h4>
+            <div class="justify">
+              This project aimed at building a user-friendly and functional e-commerce UI/UX design for clothing and accessories. The focus was on clear categorization, fast product discovery, and mobile responsiveness.
+            </div>
+            <h4>Objectives</h4>
             <ul>
-                <li><a href="https://github.com/Srihari2715/Srihari-portfolio">digital portpolio</a></li>
-                 
-                <!-- Add more project links here -->
+              <li>Design a responsive product catalog.</li>
+              <li>Simplify checkout and navigation.</li>
+              <li>Add filtering/sorting functionality.</li>
+              <li>Use real-world e-commerce practices like wishlists and carts.</li>
             </ul>
+            <h4>Tools Used</h4>
+            <span class="tools">Figma</span>
+            <span class="tools">Next.js</span>
+            <span class="tools">Adobe XD</span>
+            <h4>Key Features</h4>
+            <ul>
+              <li>Product filtering by price, color, size.</li>
+              <li>Search bar and category menu at the top.</li>
+              <li>Wishlist and cart icons on product cards.</li>
+              <li>Call-to-action buttons like “Add to Cart” and “Buy Now.”</li>
+            </ul>
+          </div>
         </div>
-    </section>
-
-    <section id="resume">
-    
-        <div class="section-content">
-            <center>
-            <h2>Resume</h2>
-            <a href="Resume.pdf" download target="_blank" class="download-button">Download CV</a>
-        </center>
+        <!-- Project 3 -->
+        <div class="project-item">
+          <div class="project-header">
+            <span class="project-title">Professional Newsletter Template</span>
+            <button class="view-btn" onclick="toggleDetails(2)">View Details</button>
+          </div>
+          <div class="project-details">
+            <img src="25.jpg" alt="Newsletter UI" />
+            <h4>Overview</h4>
+            <div class="justify">
+              The newsletter project focused on building a professional and engaging email layout that is responsive and easy to customize. It’s intended for marketing, promotions, and product updates.
+            </div>
+            <h4>Objectives</h4>
+            <ul>
+              <li>Design a responsive, single-column layout.</li>
+              <li>Highlight product features and call-to-action buttons.</li>
+              <li>Keep a minimal yet colorful theme.</li>
+              <li>Ensure compatibility across email clients.</li>
+            </ul>
+            <h4>Tools Used</h4>
+            <span class="tools">Figma</span>
+            <span class="tools">HTML/CSS</span>
+            <span class="tools">Canva</span>
+            <span class="tools">Mailchimp</span>
+            <h4>Sections in Design</h4>
+            <ul>
+              <li>Header with newsletter title and logo.</li>
+              <li>Hero image with a big announcement.</li>
+              <li>Feature boxes (like timer, measure tool, etc.).</li>
+              <li>CTA buttons and footer with social icons.</li>
+            </ul>
+          </div>
         </div>
-        
-    </section>
+        <!-- Project 4 -->
+        <div class="project-item">
+          <div class="project-header">
+            <span class="project-title">Coffee Shop Website Design</span>
+            <button class="view-btn" onclick="toggleDetails(3)">View Details</button>
+          </div>
+          <div class="project-details">
+            <img src="26.jpg" alt="Coffee Shop UI" />
+            <h4>Overview</h4>
+            <div class="justify">
+              This task involved designing a cozy and welcoming interface for a coffee shop, complete with menu, order system, and branding elements. It was done entirely using Figma.
+            </div>
+            <h4>Objectives</h4>
+            <ul>
+              <li>Reflect a warm, rustic café vibe.</li>
+              <li>Include homepage, menu, order, and about sections.</li>
+              <li>Ensure consistency in theme, fonts, and colors.</li>
+              <li>Optimize for desktops and tablets.</li>
+            </ul>
+            <h4>Design Process</h4>
+            <ul>
+              <li>Started with mood board (wood textures, coffee themes).</li>
+              <li>Designed wireframes, followed by high-fidelity designs.</li>
+              <li>Added menu cards, images, and layout components.</li>
+            </ul>
+            <h4>Tools Used</h4>
+            <span class="tools">Figma</span>
+            <span class="tools">Unsplash</span>
+            <span class="tools">CSS References</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 SRIHARI M</p>
-    </footer>
-
-    <script>
-        // Smooth scrolling to section when clicking on navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+  <footer>
+    📞 9042472957 &nbsp; | &nbsp; ✉️ mmmeganathan323@gmail.com &nbsp; | &nbsp; 📍 Pattabiram
+    <br>
+    <a href="mailto:mmmeganathan323@gmail.com" class="footer-btn">Contact Me</a>
+  </footer>
+</div>
+<script>
+  function toggleDetails(index) {
+    var details = document.querySelectorAll('.project-details');
+    if(details[index].style.display === "none" || details[index].style.display === "") {
+      details[index].style.display = "block";
+    } else {
+      details[index].style.display = "none";
+    }
+  }
+  // Ensure all project-details are initially hidden
+  window.addEventListener('load', function() {
+    document.querySelectorAll('.project-details').forEach(function(div) {
+      div.style.display = "none";
+    });
+  });
+</script>
 </body>
 </html>
